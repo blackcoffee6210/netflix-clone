@@ -49,7 +49,7 @@ export const Layout = ({
         ))}
       </div>
 
-      {trailerUrl && <Youtube videoId={trailerUrl} opt={opts} />}
+      {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
     </div>
   );
 };
