@@ -11,15 +11,16 @@ export const Layout = ({
   movies,
   isLargeRow,
 }: LayoutProps) => {
-  const imageUrl = "https://image.tmdb.org/5/p/original";
+  const imageUrl = "https://image.tmdb.org/t/p/original";
 
   return (
-    <div>
-      <h2>{title}</h2>
-      <div>
+    <div className="ml-5 text-white">
+      <h2 className="text-left font-bold">{title}</h2>
+      <div className="flex overflow-y-hidden overflow-x-scroll p-5 scrollbar-hide">
         {movies.map((movie) => (
           <img
             key={movie.id}
+            className={`object-contain w-full max-h-24 m-2 transform transition-transform duration-450 ${isLargeRow ? "max-h-60 hover:scale-110" : "hover:scale-108"}`}
             src={`${imageUrl}${
               isLargeRow
                 ? movie.poster_path

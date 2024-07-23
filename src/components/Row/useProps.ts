@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import axios from '../../axios';
+import { useEffect, useState } from "react";
+import axios from "../../axios";
 
 export type Movie = {
   id: string;
   name: string;
   poster_path: string;
   backdrop_path: string;
-}
+};
 
 export const useProps = (fetchUrl: string) => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -15,12 +15,14 @@ export const useProps = (fetchUrl: string) => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
 
-      const movies = request.data.results.map((movie: Movie) => ({
-        id: movie.id,
-        name: movie.name,
-        poster_path: movie.poster_path,
-        backdrop_path: movie.backdrop_path
-      }));
+      const movies = request.data.results.map(
+        (movie: Movie) => ({
+          id: movie.id,
+          name: movie.name,
+          poster_path: movie.poster_path,
+          backdrop_path: movie.backdrop_path,
+        })
+      );
       setMovies(movies);
       return request;
     }
@@ -28,4 +30,4 @@ export const useProps = (fetchUrl: string) => {
   }, [fetchUrl]);
 
   return movies;
-}
+};
