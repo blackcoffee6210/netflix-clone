@@ -1,4 +1,6 @@
-import { Layout } from "../Row/Layout";
-import { useProps } from "../Row/useProps";
+import { Layout } from "./Layout";
+import { useProps } from "./useProps";
 
-export const Banner = () => <Layout {...useProps()} />;
+export const Banner = () => {
+  return <Layout {...useProps()} />;
+};
